@@ -59,10 +59,10 @@ def train_and_save(multiword_dic_path, stopword_path, corpus_files_glob_pattern,
   wvc.save(mode_file_name)
 
 
-#'''
+'''
 # Uncomment to train =>
 
 train_and_save('data/wiki_rock_multiword_dic.txt', 'data/stop-words-english1.txt',
-               '/Users/aliostad/wiki_rock_corpus/*.txt')
+               '<THE_LOCATION>/wiki_rock_corpus/*.txt')
 
-#'''
+'''
