@@ -45,6 +45,9 @@ def similar():
   topn = 100 if topns==None else int(topns)
   min_freq = 10 if min_freqs==None else int(min_freqs)
 
+  if word_sim is None:
+    jsonify({"result": "Could not find the model."}), 500
+
   for p in pos:
     if p not in word_sim.vocab:
       return jsonify({"result": "Not in vocab: " + p}), 400
@@ -52,9 +55,6 @@ def similar():
   for p in neg:
     if p not in word_sim.vocab:
       return jsonify({"result": "Not in vocab: " + p}), 400
-
-  if word_sim is None:
-    raise ValueError("word_sim is none")
 
   sims = word_sim.most_similar(positive=pos, negative=neg, topn=topn)
   return jsonify({"result": order_sims(sims, min_freq)})
