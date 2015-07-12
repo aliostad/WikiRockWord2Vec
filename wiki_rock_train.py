@@ -4,7 +4,7 @@ import codecs
 import glob
 import time
 import stopword_filtering
-import tokeniser
+import tokenization
 import gensim
 import dictionary_tokenization
 
@@ -19,7 +19,7 @@ class EnglishSentences(object):
     for f in glob.glob(self.globPattern):
       i+=1
       txt = get_text(f)
-      for sentence in tokeniser.segment_to_sentences(txt):
+      for sentence in tokenization.segment_to_sentences(txt):
         yield self.tknsr(sentence)
       if self.debug and i % 100 == 0:
         print(i)
