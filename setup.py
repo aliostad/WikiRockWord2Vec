@@ -9,7 +9,7 @@ setup(
     description='word2vec on Wiki Rock documents',
     zip_safe=False,
     py_modules=['artist_clustering', 'stopword_filtering', 'dictionary_tokenization', 'tokenization',
-                'wiki_rock_train', 'wiki_rock_w2v_api', 'artist_clustering'],
+                'wiki_rock_train', 'wiki_rock_w2v_api', 'artist_clustering', 'wsgi'],
     platforms='any',
     data_files=[('data', ['data/all_artists.txt', 'data/rock_music.w2v', 'data/rock_music.w2v',
                             'data/rock_music.w2v.sun0.npy', 'data/rock_music.w2v.syn1.npy',
