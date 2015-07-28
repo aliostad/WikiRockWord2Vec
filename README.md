@@ -11,9 +11,9 @@ See the blog post with more information [here](http://byterot.blogspot.co.uk/201
 
 ## Example API
 ```
-http://rockword2vecapi-dev.elasticbeanstalk.com/api/v1/rock/similar?pos=<comma separate list>&neg=<comma separated list>
+http://localhost:5000/api/v1/rock/similar?pos=<comma separate list>&neg=<comma separated list>
 ```
 For example:
 
 
-[http://rockword2vecapi-dev.elasticbeanstalk.com/api/v1/rock/similar?pos=Radiohead](http://rockword2vecapi-dev.elasticbeanstalk.com/api/v1/rock/similar?pos=Radiohead)
+[http://localhost:5000/api/v1/rock/similar?pos=Radiohead](http://rockword2vecapi-dev.elasticbeanstalk.com/api/v1/rock/similar?pos=Radiohead)
