@@ -1,6 +1,5 @@
 # coding=utf-8
 
-import normalisation
 punc_sign = u'#'
 
 _delimiters = [' ', '\t', '.', '\r', '\n', ':', '.', '-', ',', ';', '['
@@ -65,8 +64,7 @@ def split_text(text, delimiters=_delimitersMap):
 def segment(text, replacements=_replacements,
             whitespaces=_whitespaces,
             punctuations=_punctuations,
-            quotes=_quotes,
-            word_normaliser=normalisation.normalise_farsi_word):
+            quotes=_quotes):
 
   text_rep = text.translate(replacements)
 
@@ -113,7 +111,6 @@ def segment(text, replacements=_replacements,
 
   if current_word_start > 0:
     w = text_rep[current_word_start:position]
-    w = word_normaliser(w)
     if len(w) > 0:
       words.append(w)
 
@@ -175,9 +172,8 @@ def segment_to_sentences(text):
 def segment_simple(text, replacements=_replacements,
             whitespaces=_whitespaces,
             punctuations=_punctuations,
-            quotes=_quotes,
-            word_normaliser=normalisation.normalise_farsi_word):
-  return segment(text, replacements, whitespaces, punctuations, quotes, word_normaliser).get_words_nophrasesplitter()
+            quotes=_quotes):
+  return segment(text, replacements, whitespaces, punctuations, quotes).get_words_nophrasesplitter()
 
 def select_first_n_sentences(text, n):
 
