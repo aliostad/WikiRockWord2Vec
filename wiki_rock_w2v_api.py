@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 import logging
 from logging import FileHandler
 import time
@@ -31,6 +31,17 @@ def order_sims(similars, minFreq = 10):
     if word_sim.vocab[c[0]].count > minFreq:
       res.append(c)
   return res
+
+@app.route('/', methods=['GET'])
+def browse_default():
+  try:
+    return send_from_directory('ui', 'index.html')
+  except Exception as e:
+    return e.message
+
+@app.route('/<path:path>', methods=['GET'])
+def staticx(path):
+   return send_from_directory('ui', path)
 
 @app.route('/api/v1/rock/similar', methods=['GET'])
 def similar():
