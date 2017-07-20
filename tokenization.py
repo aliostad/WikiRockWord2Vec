@@ -99,7 +99,7 @@ def segment(text, replacements=_replacements,
     # word
     if ch in quotes or ch in punctuations or ch in whitespaces:
       if current_word_start >= 0:
-        words.append(word_normaliser(text_rep[current_word_start:position]))
+        words.append(text_rep[current_word_start:position])
         current_word_start = -1
         if ch in punctuations:
           words.append(punc_sign)
